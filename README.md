@@ -1,5 +1,5 @@
-# Mathimals
+# RPS - Rock Paper Scissors
 
 ## About
 
-Complete maths challenges to earn money and build a zoo.
+As it says - this is a rock paper scissors game!
