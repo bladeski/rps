@@ -2,7 +2,6 @@
   "name": "rps",
   "version": "1.0.0",
   "description": "Simple 'Rock Paper Scissors' game",
-  "main": "index.js",
   "author": "Jonathan Blades <jonoblades@gmail.com>",
   "license": "MIT",
   "source": "src/index.pug",
@@ -32,7 +31,6 @@
     "parcel-reporter-static-files-copy": "^1.5.3",
     "prettier": "^2.8.7",
     "rimraf": "^4.4.1",
-    "svgo": "^3.2.0",
     "typescript": "^5.0.2"
   },
   "dependencies": {
