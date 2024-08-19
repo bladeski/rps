@@ -8,6 +8,7 @@
   "source": "src/index.pug",
   "type": "module",
   "scripts": {
+    "build": "npm run clean:dist && parcel build",
     "clean:dist": "rimraf dist",
     "clean:dist-serve": "rimraf dist-serve",
     "start": "parcel serve src/index.pug src/robots.txt --port 1236",
