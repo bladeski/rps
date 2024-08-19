@@ -1,6 +1,6 @@
 {
   "name": "rps",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple 'Rock Paper Scissors' game",
   "author": "Jonathan Blades <jonoblades@gmail.com>",
   "license": "MIT",
