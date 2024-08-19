@@ -1,0 +1,20 @@
+main   
+  .game-option.opponent
+  .game    
+    button.game-option.rock(data-choice="0" aria-label="Rock button")
+    button.game-option.paper(data-choice="1" aria-label="Paper button") 
+    button.game-option.scissors(data-choice="2" aria-label="Scissors button") 
+      
+  button.play PLAY
+
+  .game-result.hidden
+    .result-label
+    span.result-message
+  
+  .score 
+    div.player-1 
+      span.player-label You
+      span.player-score 0
+    div.player-2
+      span.player-label Opponent
+      span.player-score 0

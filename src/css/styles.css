@@ -1,0 +1,240 @@
+@import url("https://use.typekit.net/uzg7ezj.css");
+
+* {
+  --heading-font: "ironstrike", sans-serif;
+  --body-font: "unit-rounded", sans-serif;
+  --button-font: "ironstrike", sans-serif;
+
+  --circle-size: 15rem;
+  --gap-size: 1rem;
+
+  font-family: var(--body-font);
+  font-style: normal;
+  box-sizing: border-box;
+}
+
+html,
+body,
+button {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  background-image: url("../assets/background-3.jpg");
+  background-color: rgba(255,255,255,0.2);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: lighten;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--button-font);
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+main {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, var(--circle-size));
+  grid-template-rows: auto repeat(3, var(--circle-size));
+  gap: var(--gap-size);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.score {
+  grid-row: 1;
+  grid-column: 1 / span 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 0.6rem solid rgb(35, 24, 21);
+  border-radius: 1rem;
+
+  > div {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+.game,
+.game-option.opponent,
+.play {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.game,
+.game-option.opponent {
+  position: absolute;
+}
+
+.game {
+  position: relative;
+  transition: all 0.3s;
+  transform: translateY(calc((var(--circle-size) / 2) + var(--gap-size)));
+
+  &.selection-rock {
+    transform: rotate(-90deg) translateY(calc((var(--circle-size) / 2) + var(--gap-size)));
+
+    .rock {
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .paper,
+    .scissors {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &.selection-paper {
+    transform: rotate(30deg) translateY(calc((var(--circle-size) / 2) + var(--gap-size)));
+
+    .paper {
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .rock,
+    .scissors {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &.selection-scissors {
+    transform: rotate(150deg) translateY(calc((var(--circle-size) / 2) + var(--gap-size)));
+
+    .scissors {
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .rock,
+    .paper {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.play {
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 1;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  border-width: 0.6rem;
+  border-color: rgb(35, 24, 21);
+}
+
+.game-option {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  transition: all 0.1s;
+  transform-origin: center -1rem;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.rock {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    transform: rotate(180deg) scale(-1, 1) translateY(calc(var(--circle-size) / 2));
+    background-image: url("../assets/rock.svg");
+  }
+
+  &.paper {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    transform: rotate(60deg) scale(-1, 1) translateY(calc(var(--circle-size) / 2));
+    background-image: url("../assets/paper.svg");
+  }
+
+  &.scissors {
+    grid-column: 3 / span 2;
+    grid-row: 3;
+    transform: rotate(-60deg) scale(-1, 1) translateY(calc(var(--circle-size) / 2));
+    background-image: url("../assets/scissors.svg");
+  }
+
+  &.opponent {
+    position: relative;
+    grid-column: 3;
+    grid-row: 3;
+    opacity: 0;
+    transform-origin: center;
+    transform: rotate(-90deg);
+
+    &.rock,
+    &.paper,
+    &.scissors {
+      opacity: 1;
+    }
+  }
+
+  img {
+    transform: rotate(-90deg) scale(-1, 1);
+  }
+}
+
+.game-result {
+  grid-column: 1 / span 3;
+  grid-row: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 0.6rem solid rgb(35, 24, 21);
+  border-radius: 1rem;
+  text-align: center;
+  z-index: 1;
+
+  .result-label {
+    font-family: var(--heading-font);
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+
+  .result-message {
+    font-size: 0.8rem;
+  }
+}

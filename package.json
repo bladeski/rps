@@ -1,0 +1,40 @@
+{
+  "name": "rps",
+  "version": "1.0.0",
+  "description": "Simple 'Rock Paper Scissors' game",
+  "main": "index.js",
+  "author": "Jonathan Blades <jonoblades@gmail.com>",
+  "license": "MIT",
+  "source": "src/index.pug",
+  "type": "module",
+  "scripts": {
+    "clean:dist": "rimraf dist",
+    "clean:dist-serve": "rimraf dist-serve",
+    "start": "parcel serve src/index.pug src/robots.txt --port 1236",
+    "minify:svg": "yarn svgo -f src/assets/",
+    "eslint": "eslint src/**/*.ts",
+    "eslint:fix": "eslint src/**/*.ts --fix",
+    "prettier": "prettier --check src/**/*.ts",
+    "prettier:write": "prettier --write src/**/*.ts",
+    "lint": "yarn prettier && yarn eslint",
+    "lint:write": "yarn eslint:fix && yarn prettier:write"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "devDependencies": {
+    "@parcel/transformer-pug": "2.12.0",
+    "@types/canvas-confetti": "^1.4.3",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-sort-class-members": "^1.16.0",
+    "parcel": "^2.10.3",
+    "parcel-reporter-static-files-copy": "^1.5.3",
+    "prettier": "^2.8.7",
+    "rimraf": "^4.4.1",
+    "svgo": "^3.2.0",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "rxjs": "^7.8.1"
+  }
+}
